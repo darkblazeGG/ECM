@@ -6,8 +6,8 @@
 double Result(int N, double x)
 {
     double result = 0;
-    for (int i = 1, t = 1; i < N; i++, t *= -1)
-        result += t * pow(x, i) / i;
+    for (int i = 1, t = 1, p = x; i < N; i++, t *= -1, p*=x)
+        result += t * p / i;
     return result;
 }
 
@@ -16,6 +16,9 @@ int main(int argc, char **argv)
     double result, x = 0.1;
     struct timespec start, end;
     int N = strtol(argv[1], NULL, 10);
+
+    if(N < 0) // Условие чтобы было дано число больше нуля
+        return 0;
 
     clock_gettime(CLOCK_MONOTONIC_RAW, &start);
 
