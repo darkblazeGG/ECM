@@ -6,8 +6,8 @@
 double Result(int N, double x)
 {
     double result = 0;
-    for (int i = 1; i < N; i++)
-        result += pow(-1, i + 1) * pow(x, i) / i;
+    for (int i = 1, t = 1; i < N; i++, t *= -1)
+        result += t * pow(x, i) / i;
     return result;
 }
 
