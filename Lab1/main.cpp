@@ -17,11 +17,11 @@ int main(int argc, char **argv)
     struct timespec start, end;
     int N = strtol(argv[1], NULL, 10);
 
-    // clock_gettime(CLOCK_MONOTONIC_RAW, &start);
+    clock_gettime(CLOCK_MONOTONIC_RAW, &start);
 
     result = Result(N, x);
 
-    // clock_gettime(CLOCK_MONOTONIC_RAW, &end);
+    clock_gettime(CLOCK_MONOTONIC_RAW, &end);
 
     printf("Spent %lf sec.\n for get result %lf", end.tv_sec - start.tv_sec + 0.000000001 * (end.tv_nsec - start.tv_nsec), result);
 
